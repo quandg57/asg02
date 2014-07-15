@@ -35,7 +35,7 @@ public class BigInteger
     }
 // ham add(BigInteger other) cho phep cong 2 BigIteger voi nhau
 //so sanh do dai cua 2 BigInteger, neu xau nao ngan hon thi noi xau
-//cho mot vong for chay tu cuoi den dau
+//cho mot vong for chay tu cuoi den da1u
 //lay tung ki tu, chuyen ve dang xau, chuyen ve kieu int, sau do thuc hien phep cong
     public BigInteger add(BigInteger other) {
 
@@ -64,8 +64,6 @@ public class BigInteger
 
             str1= String.valueOf(mod);
             str2=str1+str2;
-
-
         }
         BigInteger sum1= new BigInteger(str2);
         return sum1;
@@ -114,5 +112,29 @@ public class BigInteger
         }
         BigInteger subtract1= new BigInteger(str2);
         return subtract1;
+    }
+    public int compareTo(BigInteger other){
+        if(number.length()<other.number.length()) return -1;
+        if(number.length()>other.number.length()) return 1;
+        if(number.length()==other.number.length())
+        {
+            int i=0;
+                   while (i<number.length())
+                   {
+                       char x = number.charAt(i);
+                       char y = other.number.charAt(i);
+
+                      if(Integer.valueOf(x)>Integer.valueOf(y)) return 1;
+                      if(Integer.valueOf(x)<Integer.valueOf(y)) return -1;
+                      if(Integer.valueOf(x)==Integer.valueOf(y)) i++;
+                   }
+
+    }
+    return 0;
+}
+
+    public BigInteger clone(){
+        BigInteger bigInt = new BigInteger(number);
+        return bigInt;
     }
 }
